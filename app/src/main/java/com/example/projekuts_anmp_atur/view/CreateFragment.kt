@@ -43,7 +43,7 @@ class CreateFragment : Fragment() {
             if (name.isEmpty() || desc.isEmpty() || goalStr.isEmpty()) {
                 Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
             } else {
-                // Memanggil fungsi add di ViewModel (Sesuai konsep Business Logic di VM)
+
                 viewModel.addHabit(name, desc, goalStr.toInt(), icon)
 
                 Toast.makeText(context, "Habit Created!", Toast.LENGTH_SHORT).show()

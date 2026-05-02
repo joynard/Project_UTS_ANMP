@@ -3,6 +3,7 @@ package com.example.projekuts_anmp_atur.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projekuts_anmp_atur.R
 import com.example.projekuts_anmp_atur.databinding.CardHabitBinding
 import com.example.projekuts_anmp_atur.model.Habit
 import com.example.projekuts_anmp_atur.viewmodel.HabitViewModel
@@ -27,7 +28,15 @@ class HabitListAdapter(
         val habit = habitList[position]
 
         with(holder.binding) {
-            // Mapping data model ke UI (Week 3)
+            val iconResource = when(habit.iconName) {
+                "Water" -> R.drawable.ic_water
+                "Run"   -> R.drawable.ic_run
+                "Pray"  -> R.drawable.ic_pray
+                "Sleep" -> R.drawable.ic_sleep
+                else -> android.R.drawable.ic_menu_edit
+            }
+            imgHabitIcon.setImageResource(iconResource)
+
             txtHabitName.text = habit.name
             txtHabitDesc.text = habit.description
             val goal = habit.goal ?: 0
@@ -54,7 +63,7 @@ class HabitListAdapter(
 
             btnMinus.setOnClickListener {
                 habit.id?.let { id ->
-                    viewModel.incrementProgress(id)
+                    viewModel.decrementProgress(id)
                 }
             }
         }
