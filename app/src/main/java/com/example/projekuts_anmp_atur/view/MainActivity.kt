@@ -19,20 +19,20 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set toolbar sebagai action bar
+        //set toolbar sebagai action bar
         setSupportActionBar(binding.toolbar)
 
-        // Inisialisasi NavController lewat FragmentContainerView
+        //inisialisasi NavController lewat FragmentContainerView
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.navHostFragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        // Hubungkan ActionBar dengan NavController
+        //connect ActionBar dengan NavController
         setupActionBarWithNavController(navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        // Gunakan navController yang sudah diinisialisasi di atas
+        //gunakan navController yang sudah diinisialisasi di atas
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

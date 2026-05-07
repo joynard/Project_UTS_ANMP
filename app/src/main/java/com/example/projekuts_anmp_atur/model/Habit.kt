@@ -18,7 +18,6 @@ data class Habit(
         get() = (currentProgress ?: 0) >= (goal ?: 0)
 }
 
-
 object HabitRepository {
     private val habits = mutableListOf<Habit>()
 

@@ -13,7 +13,6 @@ class HabitListAdapter(
     val viewModel: HabitViewModel
 ) : RecyclerView.Adapter<HabitListAdapter.HabitViewHolder>() {
 
-
     class HabitViewHolder(var binding: CardHabitBinding) :
         RecyclerView.ViewHolder(binding.root)
 
